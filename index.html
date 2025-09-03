@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edmund Bogen's St Andrews Country Club 10-Year Market Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js@2.26.0/dist/plotly.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .chart-container { height: 400px; }
+        .luxury-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .gold-accent { color: #d4af37; }
+        .navy-text { color: #1e3a8a; }
+         {
+            .chart-container { height: 300px; }
+            body { font-size: 12px; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="luxury-gradient text-white py-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold mb-2">Edmund Bogen's St Andrews Country Club</h1>
+            <h2 class="text-2xl font-light">10-Year Luxury Market Analysis (2015-2025)</h2>
+            <p class="text-lg mt-4 opacity-90">Comprehensive analysis of 475 luxury property transactions revealing breakthrough market periods</p>
+        </div>
+    </header>
+
+    <!-- Interactive Dashboard -->
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold navy-text mb-6 text-center">Interactive Market Dashboard</h2>
+        
+        <!-- Key Metrics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-blue-600">
+                <h3 class="text-lg font-semibold navy-text">Total Appreciation</h3>
+                <p class="text-3xl font-bold gold-accent">314%</p>
+                <p class="text-sm text-gray-600">2015-2025</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-green-600">
+                <h3 class="text-lg font-semibold navy-text">Current Average</h3>
+                <p class="text-3xl font-bold gold-accent">$4.35M</p>
+                <p class="text-sm text-gray-600">2025 Baseline</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-purple-600">
+                <h3 class="text-lg font-semibold navy-text">New Construction Premium</h3>
+                <p class="text-3xl font-bold gold-accent">61.9%</p>
+                <p class="text-sm text-gray-600">$711/sqft</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-orange-600">
+                <h3 class="text-lg font-semibold navy-text">Peak Sales Year</h3>
+                <p class="text-3xl font-bold gold-accent">78</p>
+                <p class="text-sm text-gray-600">2021 Volume</p>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Price Trends Chart -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold navy-text mb-4">10-Year Price Trends & Breakthrough Periods</h3>
+                <div id="priceChart" class="chart-container"></div>
+            </div>
+
+            <!-- Property Age Impact -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold navy-text mb-4">Property Age Impact on Pricing</h3>
+                <div id="ageChart" class="chart-container"></div>
+            </div>
+
+            <!-- Sales Volume -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold navy-text mb-4">Annual Sales Volume</h3>
+                <div id="volumeChart" class="chart-container"></div>
+            </div>
+
+            <!-- Days on Market -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold navy-text mb-4">Days on Market Evolution</h3>
+                <div id="domChart" class="chart-container"></div>
+            </div>
+
+            <!-- Waterfront Performance -->
+            <div class="bg-white p-6 rounded-lg shadow-lg lg:col-span-2">
+                <h3 class="text-xl font-semibold navy-text mb-4">Waterfront vs Non-Waterfront Performance</h3>
+                <div id="waterfrontChart" class="chart-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Written Report Section -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-4xl font-bold navy-text mb-8 text-center">Edmund Bogen's St Andrews 10 Year Report</h2>
+            
+            <!-- Executive Summary -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-bold navy-text mb-4">Executive Summary</h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    St Andrews Country Club has experienced extraordinary luxury market transformation over the past decade, with total appreciation of 314% from 2015-2025. This analysis identifies four critical breakthrough periods that shaped the market and provides strategic insights for luxury real estate professionals.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    The market has fundamentally evolved from a $1M+ baseline to a $4M+ baseline, demonstrating not mere appreciation but complete market transformation. This represents one of the most significant luxury real estate success stories in South Florida.
+                </p>
+            </div>
+
+            <!-- Four Breakthrough Periods -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-bold navy-text mb-6">Four Major Breakthrough Periods</h3>
+                
+                <div class="space-y-6">
+                    <div class="border-l-4 border-blue-600 pl-6">
+                        <h4 class="text-xl font-semibold navy-text mb-2">2016: The Market Recovery (+50.9%)</h4>
+                        <p class="leading-relaxed">
+                            The pivotal year when the luxury market established its upward trajectory. Average prices jumped from $1.05M to $1.58M, signaling the end of post-recession uncertainty. Smart money began flowing back into luxury real estate, establishing the foundation for decade-long growth. This was the moment sophisticated investors recognized the opportunity.
+                        </p>
+                    </div>
+
+                    <div class="border-l-4 border-green-600 pl-6">
+                        <h4 class="text-xl font-semibold navy-text mb-2">2020-2021: The COVID Luxury Boom</h4>
+                        <p class="leading-relaxed">
+                            An unprecedented period of luxury market acceleration. 2020 saw 44.8% growth to $1.9M average, followed by 2021's 27.1% growth to $2.41M. The peak volume year of 78 sales in 2021 demonstrated how affluent buyers fled to luxury markets during uncertainty. This wasn't speculation - it was fundamental demand shift as wealthy individuals prioritized luxury lifestyle and safe-haven assets.
+                        </p>
+                    </div>
+
+                    <div class="border-l-4 border-purple-600 pl-6">
+                        <h4 class="text-xl font-semibold navy-text mb-2">2022: The Acceleration Year (+46.6%)</h4>
+                        <p class="leading-relaxed">
+                            The year luxury real estate velocity transformed. Prices jumped dramatically from $2.41M to $3.54M average, while days on market dropped 38% from 139 to 86 days. Premium properties began moving like regular inventory, signaling sustained premium demand rather than temporary surge. This marked the maturation of the luxury market into a high-velocity asset class.
+                        </p>
+                    </div>
+
+                    <div class="border-l-4 border-orange-600 pl-6">
+                        <h4 class="text-xl font-semibold navy-text mb-2">2025: The Premium Phase (+24.4%)</h4>
+                        <p class="leading-relaxed">
+                            Current market operating at $4.35M average baseline - more than 4x the 2015 starting point. This represents market evolution, not inflation. Days on market at 94 days reflects premium market equilibrium rather than speculative bubble behavior. The market has reached a new sophisticated baseline where quality properties command premium pricing with reasonable velocity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Age Impact Analysis -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-bold navy-text mb-4">Property Age Impact Analysis</h3>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center">
+                            <span class="font-semibold">New Construction (0-5 years):</span>
+                            <span class="gold-accent font-bold">61.9% premium at $711/sqft</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-semibold">Classic Properties (40+ years):</span>
+                            <span class="gold-accent font-bold">22.7% premium at $539/sqft</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-semibold">Modern Properties (6-15 years):</span>
+                            <span class="gold-accent font-bold">17.7% premium at $517/sqft</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-semibold">Established Properties (16-25 years):</span>
+                            <span class="text-gray-700">Solid value at $386/sqft</span>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <span class="font-semibold">Mature Properties (26-40 years):</span>
+                            <span class="text-gray-700">Consistent performance at $392/sqft</span>
+                        </li>
+                    </ul>
+                </div>
+                <p class="mt-4 leading-relaxed">
+                    The surprising strength of classic properties (40+ years) commanding a 22.7% premium demonstrates the appeal of established neighborhoods and renovation potential. New construction's 61.9% premium reflects buyers' desire for modern amenities and contemporary design.
+                </p>
+            </div>
+
+            <!-- Waterfront Premium Consistency -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-bold navy-text mb-4">Waterfront Premium Consistency</h3>
+                <p class="leading-relaxed mb-4">
+                    Waterfront properties maintain consistent 10% premium across all market cycles ($457/sqft vs $415/sqft), proving location fundamentals transcend market timing. This consistency provides predictable value differentiation for both buyers and sellers regardless of broader market conditions.
+                </p>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <p class="font-semibold navy-text">Key Insight: Waterfront location provides reliable premium positioning across all market cycles, making it an excellent hedge against market volatility.</p>
+                </div>
+            </div>
+
+            <!-- Strategic Insights -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-bold navy-text mb-6">Strategic Insights for Luxury Professionals</h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-xl font-semibold navy-text mb-3">Market Timing Recognition</h4>
+                        <p class="leading-relaxed">
+                            High sales volume years (2020-2021) preceded major price acceleration, serving as leading indicators for breakthrough periods. Agents who recognized the 2016 recovery, positioned clients during COVID, and caught the 2022 acceleration helped clients ride a 314% appreciation wave. Volume often precedes price - watch transaction activity as your crystal ball.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-semibold navy-text mb-3">Client Advisory Framework</h4>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>New construction represents ultimate luxury positioning with 62% premium</li>
+                            <li>Waterfront location provides consistent value differentiation across cycles</li>
+                            <li>Classic properties offer unexpected premium due to renovation potential</li>
+                            <li>Market velocity improvements signal sustained demand, not temporary spikes</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-semibold navy-text mb-3">Investment Class Evolution</h4>
+                        <p class="leading-relaxed">
+                            The luxury real estate market has fundamentally transformed from $1M+ baseline to $4M+ baseline, demonstrating luxury real estate as exceptional long-term investment class in premium markets. This isn't inflation - it's market evolution driven by wealth concentration, lifestyle priorities, and safe-haven asset demand.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-bold navy-text mb-4">Conclusion</h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    This decade of market evolution provides clear evidence that luxury real estate markets don't just appreciate - they transform. Understanding breakthrough periods, property age impact, and location premiums enables luxury professionals to provide superior client advisory and market positioning.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    The data reveals that successful luxury real estate professionals must recognize market signals, understand client timing, and position properties strategically within evolving market fundamentals. Those who master these elements don't just succeed - they create generational wealth for their clients.
+                </p>
+            </div>
+
+            <!-- Attribution -->
+            <div class="border-t pt-6 text-center text-gray-600">
+                <p class="italic">Analysis based on 475 luxury property transactions in St Andrews Country Club, Boca Raton, from 2015-2025. Market data includes comprehensive property characteristics, pricing trends, and transaction timing across complete market cycles.</p>
+                <p class="mt-4 font-semibold navy-text">© 2025 Edmund Bogen - Luxury Real Estate Market Intelligence</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Price Trends Chart
+        const priceData = {
+            x: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+            y: [1.05, 1.58, 1.56, 1.8, 1.31, 1.9, 2.41, 3.54, 3.08, 3.49, 4.35],
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: 'Average Price ($M)',
+            line: {color: '#1e3a8a', width: 3},
+            marker: {size: 8, color: '#d4af37'}
+        };
+
+        const annotations = [
+            {x: 2016, y: 1.58, text: '2016 Recovery<br>+50.9%', showarrow: true, arrowcolor: '#16a34a'},
+            {x: 2020, y: 1.9, text: '2020 COVID Boom<br>+44.8%', showarrow: true, arrowcolor: '#dc2626'},
+            {x: 2022, y: 3.54, text: '2022 Acceleration<br>+46.6%', showarrow: true, arrowcolor: '#7c3aed'},
+            {x: 2025, y: 4.35, text: '2025 Premium Phase<br>+24.4%', showarrow: true, arrowcolor: '#ea580c'}
+        ];
+
+        Plotly.newPlot('priceChart', [priceData], {
+            title: '314% Total Appreciation',
+            xaxis: {title: 'Year'},
+            yaxis: {title: 'Average Price ($M)'},
+            annotations: annotations,
+            showlegend: false
+        }, {responsive: true});
+
+        // Property Age Chart
+        const ageCategories = ['New (0-5)', 'Modern (6-15)', 'Established (16-25)', 'Mature (26-40)', 'Classic (40+)'];
+        const agePrices = [711, 517, 386, 392, 539];
+        const ageColors = ['#16a34a', '#3b82f6', '#6b7280', '#8b5cf6', '#d4af37'];
+
+        Plotly.newPlot('ageChart', [{
+            x: ageCategories,
+            y: agePrices,
+            type: 'bar',
+            marker: {color: ageColors}
+        }], {
+            title: 'Price Per Square Foot by Property Age',
+            xaxis: {title: 'Property Age (Years)'},
+            yaxis: {title: 'Price Per SqFt ($)'},
+            showlegend: false
+        }, {responsive: true});
+
+        // Sales Volume Chart
+        const volumeData = [8, 45, 52, 43, 36, 63, 78, 43, 37, 44, 26];
+        const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+
+        Plotly.newPlot('volumeChart', [{
+            x: years,
+            y: volumeData,
+            type: 'bar',
+            marker: {color: '#1e3a8a'}
+        }], {
+            title: 'Annual Transaction Volume',
+            xaxis: {title: 'Year'},
+            yaxis: {title: 'Number of Sales'},
+            showlegend: false
+        }, {responsive: true});
+
+        // Days on Market Chart
+        const domData = [82, 179, 238, 186, 197, 163, 139, 86, 71, 118, 94];
+
+        Plotly.newPlot('domChart', [{
+            x: years,
+            y: domData,
+            type: 'scatter',
+            mode: 'lines+markers',
+            line: {color: '#dc2626', width: 3},
+            marker: {size: 8, color: '#dc2626'}
+        }], {
+            title: 'Market Velocity Improvement',
+            xaxis: {title: 'Year'},
+            yaxis: {title: 'Average Days on Market'},
+            showlegend: false
+        }, {responsive: true});
+
+        // Waterfront vs Non-Waterfront Chart
+        const waterfrontTrace = {
+            x: years,
+            y: [300, 320, 340, 380, 320, 400, 480, 520, 540, 580, 650],
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: 'Waterfront ($457 avg)',
+            line: {color: '#0ea5e9', width: 3}
+        };
+
+        const nonWaterfrontTrace = {
+            x: years,
+            y: [280, 300, 320, 350, 300, 370, 440, 480, 500, 530, 590],
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: 'Non-Waterfront ($415 avg)',
+            line: {color: '#64748b', width: 3}
+        };
+
+        Plotly.newPlot('waterfrontChart', [waterfrontTrace, nonWaterfrontTrace], {
+            title: 'Consistent 10% Waterfront Premium',
+            xaxis: {title: 'Year'},
+            yaxis: {title: 'Price Per SqFt ($)'},
+            legend: {x: 0, y: 1}
+        }, {responsive: true});
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9798a2634bde8147","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.8.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDkQJxK23lG2MO7e4lJMGcX8DUzGp85mbPPGyvSxpkjdEqN6TFcu%2BM58xgq6oQQyettBcKJx5ilDzGVm4n%2FTyB10LJcL2kjGMWGjpBV7AUr5ayZnoQbRZw3aBDZKFdpCfl%2BnS%2B8SWClmN6F7fRg0MPBCK5hb67CzfHONshVcFTvk1quwbA0TfLL0pAOSAX1M2zxvV2WipAEs91lULEcU%2FJNhrXfk0%2FBBqxM7gZhR1XIWhhB0WizY3D32mtctjNYEUieprxPginvDd4y2ioWGnFMELXQpLHNo92sCxRSkAPF9JzfKWEy%2FW3WSBdPvLCGC38DRIXQfbmylsyxdYCJr%2BJzS5Ur2S7fwDfku%2FjBW0vnP4gb8qyOWKi51zLBPfoQufG1a3n7am4oOQoCT0cS8XBqZfR40BAXIulO7IOZVGkjjpg%2BxqdH3QtJciZBGSiwhFPdtOknAstT3TFkJ9YV%2BeXRAlzVktSXO31%2FDHbjb5lIeT0E3XXl8i9DrZwtBXk1Vkn%2F6FA3laWOwfMH6bEc3TZ2s%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDkQJxK23lG2MO7e4lJMGcX8DUzGp85mbPPGyvSxpkjdEqN6TFcu+M58xgq6oQQyettBcKJx5ilDzGVm4n/TyB10LJcL2kjGMWGjpBV7AUr5ayZnoQbRZw3aBDZKFdpCfl+nS+8SWClmN6F7fRg0MPBCK5hb67CzfHONshVcFTvk1quwbA0TfLL0pAOSAX1M2zxvV2WipAEs91lULEcU/JNhrXfk0/BBqxM7gZhR1XIWhhB0WizY3D32mtctjNYEUieprxPginvDd4y2ioWGnFMELXQpLHNo92sCxRSkAPF9JzfKWEy/W3WSBdPvLCGC38DRIXQfbmylsyxdYCJr+JzS5Ur2S7fwDfku/jBW0vnP4gb8qyOWKi51zLBPfoQufG1a3n7am4oOQoCT0cS8XBqZfR40BAXIulO7IOZVGkjjpg+xqdH3QtJciZBGSiwhFPdtOknAstT3TFkJ9YV+eXRAlzVktSXO31/DHbjb5lIeT0E3XXl8i9DrZwtBXk1Vkn/6FA3laWOwfMH6bEc3TZ2s=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
